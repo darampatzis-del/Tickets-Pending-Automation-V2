@@ -1,0 +1,11 @@
+FI;fi
+FI-CO;fi
+BPC
+MM;mm
+MM - WM - QM;mm
+PO: Integrazioni
+PP - PPDS;mm
+SD;sd
+SAP BASIS;sys
+SUPP-SISTEMISTICO;sys
+ABAP;sys
