@@ -37,7 +37,7 @@ New excel file **“Tickets Pending \<current-date\>.xlsx“** that contains:
 ### Prerequisites
 1.  **Install Python for Windows**
 Download and install Python 3 from the official website:\
-https://www.python.org/downloads/.\
+https://www.python.org/downloads/. \
 During installation, make sure to check “Add Python to PATH”.
 3.	**Install Required Packages**
 Open **Command Prompt** and run the following command:\
