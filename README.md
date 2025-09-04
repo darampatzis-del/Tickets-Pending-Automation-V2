@@ -6,22 +6,52 @@ This Python script automates the process of **Tickets Pending** Daily Task.
 3.  Detects and tags high-priority tickets by scanning ticket subjects for specific keywords.
 4.  Sorts tickets by priority and creation date.
 5.  Categorizes Tickets into Sheets and automatically assigns tickets to different sheets based on the “Queue” field.
+### V2 Script Update (Queue.txt file)
+The **Queues.txt** file is used to categorize tickets into different sheets in the output Excel file. It defines mapping rules in the following format:
+**<Keyword>;<SheetName>**
++	The script scans the "**Queue**" column in each row in **generated excel file**.
++	If the text in that column contains a keyword from the **first column of Queues.txt**, the entire row is copied to the sheet named in the second column.
++	If no match is found, the row is excluded, left untagged and row won’t be copied to any other excel sheet.
+Example of Queues.txt content:
+    FI;FI-CO
+    FI-CO;FI-CO
+    BPC
+    MM;MM_PP_QM
+    MM - WM - QM;MM_PP_QM
+    PO: Integrazioni
+    PP - PPDS;MM_PP_QM
+    SD;SD_CS
+    SAP BASIS;System
+    SUPP-SISTEMISTICO;System
+    ABAP;System
+Explanation:
++	If a ticket's queue contains FI or FI-CO, the row will go to the " FI-CO" sheet.
++	If it contains SD, it goes to the " SD_CS" sheet.
++	If no sheet name is specified (e.g., BPC), the script may skip the copy of the row
++	This allows you to control how tickets are grouped in the final Excel file.
+
+
+
+
+
+
+
 ### Output
 New excel file **“Tickets Pending \<current-date\>.xlsx“** that contains:
 -  Sheet **“All”** with all tickets formatted and sorted by Priority and Date Created.
 -  Categorized sheets (**SD_CS, MM_PP_QM, FI-CO, System**) with relevant tickets based on **Queue** column.
 ## Method 2 - WSL (Contains errors | Not recommended)
-### Prerequisites
+### WSL Prerequisites (Old - Not recommended)
 1.  Make sure that **Windows Subsystem for Linux (WSL)** is enabled.
 ![Tickets Pending Guide](https://github.com/user-attachments/assets/efdf29e6-8043-47d3-aa99-29b6e1d3dde9)
 2.  Files **Template.xlsx, Queues.txt and Customers.txt** must be in the same folder as the script.
-### Installation
+### WSL Installation (Old - Not recommended)
 1.  Ensure that **Windows Subsystem for Linux (WSL) is enabled**.
 2.  Install **Ubuntu** from **Microsoft Store**
 3.  In the Ubuntu execute the following commands:
     -  **sudo apt update -y**
     -  **sudo apt install python3-pandas python3-openpyxl -y**
-### Execution Instructions
+### WSL Execution Instructions (Old - Not recommended)
 1.  Launch Ubuntu instance.
 2.  Navigate to the location where the script is placed with the following command:
     +  **cd “/mnt/c/PATH_TO_LOCATION”** - for example if script is placed to Desktop/Tickets Pending Automation, the path should be:
