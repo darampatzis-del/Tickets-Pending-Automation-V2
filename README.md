@@ -13,17 +13,17 @@ The **Queues.txt** file is used to categorize tickets into different sheets in t
 +	If the text in that column contains a keyword from the **first column of Queues.txt**, the entire row is copied to the sheet named in the second column.
 +	If no match is found, the row is excluded, left untagged and row won’t be copied to any other excel sheet.
 Example of Queues.txt content:
-:  FI;FI-CO\
-    FI-CO;FI-CO\
-    BPC\
-    MM;MM_PP_QM\
-    MM - WM - QM;MM_PP_QM\
-    PO: Integrazioni\
-    PP - PPDS;MM_PP_QM\
-    SD;SD_CS\
-    SAP BASIS;System\
-    SUPP-SISTEMISTICO;System\
-    ABAP;System\
+FI;FI-CO\
+FI-CO;FI-CO\
+BPC\
+MM;MM_PP_QM\
+MM - WM - QM;MM_PP_QM\
+PO: Integrazioni\
+PP - PPDS;MM_PP_QM\
+SD;SD_CS\
+SAP BASIS;System\
+SUPP-SISTEMISTICO;System\
+ABAP;System\
 Explanation:
 +	If a ticket's queue contains FI or FI-CO, the row will go to the " FI-CO" sheet.
 +	If it contains SD, it goes to the " SD_CS" sheet.
