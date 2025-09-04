@@ -43,7 +43,7 @@ https://www.python.org/downloads/ \
 During installation, make sure to check “Add Python to PATH”.
 2.	**Install Required Packages**
 Open **Command Prompt** and run the following command:\
-`**pip install pandas openpyxl**`
+`pip install pandas openpyxl`
 3.	**Prepare Script and Files**
 Ensure the following files are in the same folder as the script:
     +	Latest OTRS Excel file (input)
@@ -53,30 +53,14 @@ Ensure the following files are in the same folder as the script:
 
 Execution Instructions
 1.	Open Command Prompt, navigate to the location where the script is placed with the following command:\
-    cd “PATH_TO_LOCATION” - for example if script is placed to Desktop/ Tickets Pending Automation, the command to change to path should be:\
-    cd “Users/<username>/Desktop/Tickets Pending Automation”
+    `cd “PATH_TO_LOCATION”` - for example if script is placed to Desktop/ Tickets Pending Automation, the command to change to path should be:\
+    `cd “Users/<username>/Desktop/Tickets Pending Automation”`
 2.	Make sure that you download latest excel file from OTRS and place it to the same folder as the script. 
 3.	Execute script with the following command:
-    python tp_automation_v2.py <generated_OTRS_file.xlsx>
+    `python tp_automation_v2.py <generated_OTRS_file.xlsx>`
 4.	After executing script, a new file named “Tickets Pending <current_date>.xlsx” will be created.
 
 Note: If you see any empty values in Customer or Queue column, alter the file Customers.txt or Queues.txt as there you can add all the customers and queues. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Method 2 - WSL (Contains errors | Not recommended)
 ### WSL Prerequisites (Old - Not recommended)
 1.  Make sure that **Windows Subsystem for Linux (WSL)** is enabled.
@@ -86,18 +70,18 @@ Note: If you see any empty values in Customer or Queue column, alter the file Cu
 1.  Ensure that **Windows Subsystem for Linux (WSL) is enabled**.
 2.  Install **Ubuntu** from **Microsoft Store**
 3.  In the Ubuntu execute the following commands:
-    -  **sudo apt update -y**
-    -  **sudo apt install python3-pandas python3-openpyxl -y**
+    -  `sudo apt update -y`
+    -  `sudo apt install python3-pandas python3-openpyxl -y`
 ### WSL Execution Instructions (Old - Not recommended)
 1.  Launch Ubuntu instance.
 2.  Navigate to the location where the script is placed with the following command:
-    +  **cd “/mnt/c/PATH_TO_LOCATION”** - for example if script is placed to Desktop/Tickets Pending Automation, the path should be:
-    +  **cd “/mnt/c/Users/<username>/Desktop/Tickets Pending Automation”**
+    +  `cd “/mnt/c/PATH_TO_LOCATION”` - for example if script is placed to Desktop/Tickets Pending Automation, the path should be:
+    +  `cd “/mnt/c/Users/<username>/Desktop/Tickets Pending Automation”`
 3.  Make sure that you download latest excel file from OTRS and place it to the same folder as the script.
 4.  Execute script with the following command:
-    +  **python3 tp_automation.py <generated_OTRS_file.xlsx>**\
+    +  `python3 tp_automation.py <generated_OTRS_file.xlsx>`\
 **Note: If you face any issues executing the script, try to execute as root user with the below command**
-    +  **sudo python3 tp_automation.py <generated_OTRS_file.xlsx>**
+    +  `sudo python3 tp_automation.py <generated_OTRS_file.xlsx>`
 5.  After executing script, a new file named “Tickets Pending <current_date>.xlsx” will be created. The file contains errors (working to fix it), select yes to let excel repair it and when it opens, save it again to have a non-error file.\
 **Note: If you see any empty values in Customer or Queue column, alter the file Customers.txt or Queues.txt as there you can add all the customers and queues.**
 ### Notes
