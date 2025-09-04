@@ -39,15 +39,15 @@ New excel file **“Tickets Pending \<current-date\>.xlsx“** that contains:
 Download and install Python 3 from the official website:\
 https://www.python.org/downloads/. \
 During installation, make sure to check “Add Python to PATH”.
-3.	**Install Required Packages**
+2.	**Install Required Packages**
 Open **Command Prompt** and run the following command:\
 **pip install pandas openpyxl**
-4.	**Prepare Script and Files**
+3.	**Prepare Script and Files**
 Ensure the following files are in the same folder as the script:
-+	Latest OTRS Excel file (input)
-+	Template.xlsx
-+	Queues.txt
-+	Customers.txt
+    +	Latest OTRS Excel file (input)
+    +	Template.xlsx
+    +	Queues.txt
+    +	Customers.txt
 
 Execution Instructions
 1.	Open Command Prompt, navigate to the location where the script is placed with the following command:\
