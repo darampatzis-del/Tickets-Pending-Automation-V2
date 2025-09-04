@@ -15,16 +15,16 @@ The **Queues.txt** file is used to categorize tickets into different sheets in t
 Example of Queues.txt content:
 ```
 FI;FI-CO
-FI-CO;FI-CO\
-BPC\
-MM;MM_PP_QM\
-MM - WM - QM;MM_PP_QM\
-PO: Integrazioni\
-PP - PPDS;MM_PP_QM\
-SD;SD_CS\
-SAP BASIS;System\
-SUPP-SISTEMISTICO;System\
-ABAP;System\
+FI-CO;FI-CO
+BPC
+MM;MM_PP_QM
+MM - WM - QM;MM_PP_QM
+PO: Integrazioni
+PP - PPDS;MM_PP_QM
+SD;SD_CS
+SAP BASIS;System
+SUPP-SISTEMISTICO;System
+ABAP;System
 ```
 Explanation:
 +	If a ticket's queue contains FI or FI-CO, the row will go to the " FI-CO" sheet.
