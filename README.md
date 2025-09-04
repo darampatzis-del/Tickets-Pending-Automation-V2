@@ -8,7 +8,7 @@ This Python script automates the process of **Tickets Pending** Daily Task.
 5.  Categorizes Tickets into Sheets and automatically assigns tickets to different sheets based on the “Queue” field.
 ### V2 Script Update (Queue.txt file)
 The **Queues.txt** file is used to categorize tickets into different sheets in the output Excel file. It defines mapping rules in the following format:
-**<Keyword>;<SheetName>**
+**`<Keyword>;<SheetName>`**
 +	The script scans the "**Queue**" column in each row in **generated excel file**.
 +	If the text in that column contains a keyword from the **first column of Queues.txt**, the entire row is copied to the sheet named in the second column.
 +	If no match is found, the row is excluded, left untagged and row won’t be copied to any other excel sheet.
