@@ -43,7 +43,7 @@ https://www.python.org/downloads/ \
 During installation, make sure to check “Add Python to PATH”.
 2.	**Install Required Packages**
 Open **Command Prompt** and run the following command:\
-**pip install pandas openpyxl**
+`**pip install pandas openpyxl**`
 3.	**Prepare Script and Files**
 Ensure the following files are in the same folder as the script:
     +	Latest OTRS Excel file (input)
