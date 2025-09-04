@@ -1,11 +1,11 @@
-FI;fi
-FI-CO;fi
+FI;FI-CO
+FI-CO;FI-CO
 BPC
-MM;mm
-MM - WM - QM;mm
+MM;MM_PP_QM
+MM - WM - QM;MM_PP_QM
 PO: Integrazioni
-PP - PPDS;mm
-SD;sd
-SAP BASIS;sys
-SUPP-SISTEMISTICO;sys
-ABAP;sys
+PP - PPDS;MM_PP_QM
+SD;SD_CS
+SAP BASIS;System
+SUPP-SISTEMISTICO;System
+ABAP;System

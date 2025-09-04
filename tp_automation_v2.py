@@ -163,13 +163,13 @@ def copy_rows(file, sheet_list):
 #< COPY ROWS
 
 
-#> ATTEMPT TO CLEAR ERROR WHEN EXCEL OPENS. NO LUCK
+#> ATTEMPT TO CLEAR ERROR WHEN EXCEL OPENS.
 def clean_string(val):
     if isinstance(val, str):
         # Remove non-printable and invalid XML characters
         return re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]", "", val)
     return val
-#< ATTEMPT TO CLEAR ERROR WHEN EXCEL OPENS. NO LUCK
+#< ATTEMPT TO CLEAR ERROR WHEN EXCEL OPENS.
 
 
 def prepare_data(source_file, columns_to_copy, sheet_name="Sheet1"):
@@ -220,83 +220,32 @@ def prepare_data(source_file, columns_to_copy, sheet_name="Sheet1"):
 
 
 def main(source_file):
-    '''
-    # Generate a filename with the current date
+    # Generate file with current date for instance "Tickets Pending 31-02-2026.xlsx"
     current_date = datetime.today().strftime("%d-%m-%Y")
-    
-    # Full path of the files
     template_file = "Template.xlsx"
-    target_file_name = f"Tickets Pending {current_date}.xlsx"
-    target_file = target_file_name
-    current_path = os.getcwd()
-    
-    # os.name "nt" means windows
-    if (os.name != "nt"):
-            wsl_path = os.path.expanduser("~")
-            
-            current_source_file = os.path.join(current_path, source_file)
-            current_template_file = os.path.join(current_path, template_file)
-            
-            template_file = os.path.join(wsl_path, "Template.xlsx")
-            source_file = os.path.join(wsl_path, source_file)
-            target_file = os.path.join(wsl_path, target_file)
-            
-            shutil.copy(current_source_file, source_file)
-            shutil.copy(current_template_file, template_file)
-        
+    target_file = f"Tickets Pending {current_date}.xlsx"
+
     # Copy the template to create a new file
-    shutil.copy(template_file, target_file)
-    '''
-    
-    
-    template_file = "Template.xlsx"
-    current_date = datetime.today().strftime("%d-%m-%Y")
-    target_file_name = f"Tickets Pending {current_date}.xlsx"
-
-    # Paths
-    current_path = os.getcwd()
-    current_source_file = os.path.join(current_path, source_file)
-    current_template_file = os.path.join(current_path, template_file)
-    target_file = os.path.join(current_path, target_file_name)
-
-    # If not Windows (i.e., WSL/Linux)
-    if os.name != "nt":
-        wsl_path = os.path.expanduser("~")  # e.g., /home/user
-        # Copy files to WSL home directory
-        wsl_source_file = os.path.join(wsl_path, source_file)
-        wsl_template_file = os.path.join(wsl_path, template_file)
-        wsl_target_file = os.path.join(wsl_path, target_file_name)
-
-        # Ensure the source files exist
-        shutil.copy(current_source_file, wsl_source_file)
-        shutil.copy(current_template_file, wsl_template_file)
-
-        # Work inside WSL paths
-        source_file = wsl_source_file
-        template_file = wsl_template_file
-        target_file = wsl_target_file
-
-    # Finally, copy the template to create the new file
     shutil.copy(template_file, target_file)
 
     sheets = {
         "all": "All",
-        "sd": {
+        "SD_CS": {
             "name": "SD_CS",
             "search": [],
             "copy": True
         },
-        "mm": {
+        "MM_PP_QM": {
             "name": "MM_PP_QM",
             "search": [],
             "copy": True,
         },
-        "fi": {
+        "FI-CO": {
             "name": "FI-CO",
             "search": [],
             "copy": True
         },
-        "sys": {
+        "System": {
             "name": "System",
             "search": [],
             "copy": True,
@@ -343,25 +292,17 @@ def main(source_file):
                     cell.value = clean_string(value)
             next_row += 1
 
-        print(f"Saving to '{target_file}'")
         target_wb.save(target_file)
-
         color_priority(target_file)
 
         for key, value in sheets.items():
             if isinstance(value, dict) and value.get("copy") == True:
                 copy_rows(target_file, sheets[key])
-         
-        if (os.name != "nt"):
-            subprocess.run(["cp", target_file, os.path.join(current_path, target_file_name)], check=True)
-            os.remove(target_file)
-            os.remove(source_file)
-            os.remove(template_file)
         
     except Exception as e:
         print(f"An error occurred during processing: {e}")
 
-    print(f"New Excel file created: {target_file_name}")
+    print(f"New Excel file created: {target_file}")
 
 
 if __name__ == "__main__":
