@@ -29,17 +29,52 @@ Explanation:
 +	If it contains SD, it goes to the " SD_CS" sheet.
 +	If no sheet name is specified (e.g., BPC), the script may skip the copy of the row
 +	This allows you to control how tickets are grouped in the final Excel file.
-
-
-
-
-
-
-
 ### Output
 New excel file **“Tickets Pending \<current-date\>.xlsx“** that contains:
 -  Sheet **“All”** with all tickets formatted and sorted by Priority and Date Created.
 -  Categorized sheets (**SD_CS, MM_PP_QM, FI-CO, System**) with relevant tickets based on **Queue** column.
+## Method 1 - Python is installed directly to Windows (Error free)
+### Prerequisites
+1.  **Install Python for Windows**
+Download and install Python 3 from the official website:\
+https://www.python.org/downloads/.\
+During installation, make sure to check “Add Python to PATH”.
+3.	**Install Required Packages**
+Open **Command Prompt** and run the following command:\
+**pip install pandas openpyxl**
+4.	**Prepare Script and Files**
+Ensure the following files are in the same folder as the script:
++	Latest OTRS Excel file (input)
++	Template.xlsx
++	Queues.txt
++	Customers.txt
+
+Execution Instructions
+1.	Open Command Prompt, navigate to the location where the script is placed with the following command:\
+    cd “PATH_TO_LOCATION” - for example if script is placed to Desktop/ Tickets Pending Automation, the command to change to path should be:\
+    cd “Users/<username>/Desktop/Tickets Pending Automation”
+2.	Make sure that you download latest excel file from OTRS and place it to the same folder as the script. 
+3.	Execute script with the following command:
+    python tp_automation_v2.py <generated_OTRS_file.xlsx>
+4.	After executing script, a new file named “Tickets Pending <current_date>.xlsx” will be created.
+
+Note: If you see any empty values in Customer or Queue column, alter the file Customers.txt or Queues.txt as there you can add all the customers and queues. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Method 2 - WSL (Contains errors | Not recommended)
 ### WSL Prerequisites (Old - Not recommended)
 1.  Make sure that **Windows Subsystem for Linux (WSL)** is enabled.
